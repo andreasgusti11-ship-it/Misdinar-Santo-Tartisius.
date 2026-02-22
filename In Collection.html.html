@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="In Collection - Persewaan Baju Adat, Profesi, Jas, Cosplay & Kimono di Jalan Anjasmoro IV Nomor 37. Koleksi lengkap berkualitas tinggi.">
+    <meta name="keywords" content="persewaan baju, rental baju, baju adat, baju profesi, jas, cosplay, kimono, Anjasmoro, In Collection">
+    <title>In Collection - Persewaan Baju Adat, Profesi, Jas, Cosplay & Kimono</title>
+    <style>
+        /* Reset dan Gaya Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: 30px 30px;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            position: relative;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.3);
+        }
+
+        header h1 span {
+            color: #e94560;
+        }
+
+        header p {
+            font-size: 1.4em;
+            font-style: italic;
+            opacity: 0.95;
+            position: relative;
+        }
+
+        /* Navigasi */
+        nav {
+            background: rgba(26, 26, 46, 0.95);
+            padding: 18px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        nav li {
+            margin: 0 5px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            font-size: 0.95em;
+        }
+
+        nav a:hover {
+            background: #e94560;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.4);
+        }
+
+        /* Kontainer Utama */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 25px;
+        }
+
+        /* Bagian */
+        section {
+            background: white;
+            margin-bottom: 50px;
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+        }
+
+        section h2 {
+            color: #1a1a2e;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #e94560;
+            text-align: center;
+        }
+
+        section h3 {
+            color: #16213e;
+            font-size: 1.6em;
+            margin: 35px 0 20px;
+            padding-left: 20px;
+            border-left: 4px solid #e94560;
+        }
+
+        section p {
+            margin-bottom: 18px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+
+        /* Hero Banner */
+        .hero-banner {
+            background: linear-gradient(135deg, #e94560 0%, #ff6b6b 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 15px 40px rgba(233, 69, 96, 0.3);
+        }
+
+        .hero-banner h2 {
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border: none;
+            color: white;
+        }
+
+        .hero-banner p {
+            font-size: 1.2em;
+            text-align: center;
+            opacity: 0.95;
+        }
+
+        /* Grid Koleksi */
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 35px;
+        }
+
+        .collection-card {
+            background: linear-gradient(180deg, #fff, #f8f9fa);
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .collection-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .collection-card .image-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4em;
+            color: rgba(255,255,255,0.3);
+        }
+
+        .collection-card .content {
+            padding: 25px;
+            text-align: center;
+        }
+
+        .collection-card h4 {
+            color: #1a1a2e;
+            font-size: 1.3em;
+            margin-bottom: 12px;
+        }
+
+        .collection-card p {
+            font-size: 0.95em;
+            text-align: center;
+            color: #666;
+        }
+
+        .collection-card .price {
+            color: #e94560;
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        /* Sub Collection Grid */
+        .sub-collection {
+            margin-top: 20px;
+        }
+
+        .sub-collection h4 {
+            color: #e94560;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+
+        .sub-items {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .sub-item {
+            background: #f0f0f0;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        /* Keunggulan */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #f8f9fa, #fff);
+            border-radius: 15px;
+            padding: 35px 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .feature-card:hover {
+            border-color: #e94560;
+            transform: scale(1.03);
+        }
+
+        .feature-card .icon {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h4 {
+            color: #1a1a2e;
+            font-size: 1.25em;
+            margin-bottom: 15px;
+        }
+
+        /* Promo Banner */
+        .promo-banner {
+            background: linear-gradient(135deg, #ffd700 0%, #ffb700 100%);
+            color: #1a1a2e;
+            padding: 50px 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-bottom: 50px;
+            box-shadow: 0 15px 40px rgba(255, 183, 0, 0.3);
+        }
+
+        .promo-banner h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            border: none;
+            color: #1a1a2e;
+        }
+
+        .promo-banner .discount {
+            font-size: 4em;
+            font-weight: bold;
+            color: #e94560;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .promo-banner p {
+            font-size: 1.2em;
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        /* Promo Cards */
+        .promo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 35px;
+        }
+
+        .promo-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .promo-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+
+        .promo-card .header {
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            color: white;
+            padding: 25px;
+            text-align: center;
+        }
+
+        .promo-card .header h4 {
+            font-size: 1.4em;
+            margin-bottom: 5px;
+        }
+
+        .promo-card .body {
+            padding: 30px;
+            text-align: center;
+        }
+
+        .promo-card .price {
+            font-size: 2em;
+            color: #e94560;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+
+        .promo-card .price .old {
+            font-size: 0.5em;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        /* Lokasi */
+        .location-section {
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            color: white;
+            padding: 50px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .location-section h2 {
+            color: white;
+            border-bottom-color: #e94560;
+        }
+
+        .location-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 35px;
+        }
+
+        .location-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .location-item:hover {
+            background: rgba(255,255,255,0.15);
+            transform: translateY(-5px);
+        }
+
+        .location-item .icon {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+        }
+
+        .location-item h4 {
+            color: #e94560;
+            margin-bottom: 10px;
+        }
+
+        /* CTA Button */
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #e94560, #ff6b6b);
+            color: white;
+            padding: 18px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(233, 69, 96, 0.4);
+            margin-top: 25px;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(233, 69, 96, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a2e;
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+            margin-top: 50px;
+        }
+
+        footer h3 {
+            color: #e94560;
+            margin-bottom: 25px;
+            border: none;
+            padding: 0;
+        }
+
+        footer p {
+            opacity: 0.85;
+            font-size: 1em;
+            text-align: center;
+        }
+
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            line-height: 50px;
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links a:hover {
+            background: #e94560;
+            transform: translateY(-5px);
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2em; }
+            header p { font-size: 1.1em; }
+            section { padding: 30px 20px; }
+            section h2 { font-size: 1.8em; }
+            nav ul { flex-direction: column; align-items: center; }
+            .promo-banner .discount { font-size: 3em; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>In <span>Collection</span></h1>
+        <p>Persewaan Baju Adat • Profesi • Jas • Cosplay • Kimono</p>
+    </header>
+
+    <!-- Navigasi -->
+    <nav>
+        <ul>
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#koleksi">Koleksi</a></li>
+            <li><a href="#promo">Promo</a></li>
+            <li><a href="#keunggulan">Keunggulan</a></li>
+            <li><a href="#lokasi">Lokasi</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- Hero Banner -->
+        <div class="hero-banner" id="beranda">
+            <h2>✨ Tampil Memukau di Setiap Acara ✨</h2>
+            <p>Koleksi lengkap baju adat, profesi, jas, cosplay & kimono untuk kebutuhan acara Anda</p>
+            <a href="#lokasi" class="cta-button">Kunjungi Toko Kami</a>
+        </div>
+
+        <!-- Bagian 1: Koleksi Baju -->
+        <section id="koleksi">
+            <h2>Koleksi Baju Kami</h2>
+            
+            <p>In Collection menyediakan berbagai koleksi baju berkualitas untuk memenuhi kebutuhan acara Anda. Setiap koleksi dipilih dengan teliti untuk memastikan kualitas, kenyamanan, dan kesesuaian dengan tema acara Anda.</p>
+
+            <!-- Baju Adat -->
+            <div class="collection-card">
+                <div class="image-placeholder">🎎</div>
+                <div class="content">
+                    <h4>👗 Baju Adat Nusantara</h4>
+                    <p>Koleksi lengkap pakaian adat dari berbagai daerah di Indonesia</p>
+                    <div class="sub-collection">
+                        <h4>Variasi Baju Adat:</h4>
+                        <div class="sub-items">
+                            <span class="sub-item">👘 Batik</span>
+                            <span class="sub-item">🎎 Kebaya</span>
+                            <span class="sub-item">👘 Dayak</span>
+                            <span class="sub-item">👘 Daerah</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Baju Profesi -->
+            <div class="collection-card">
+                <div class="image-placeholder">👨‍⚕️</div>
+                <div class="content">
+                    <h4>👔 Baju Profesi</h4>
+                    <p>Koleksi pakaian profesional untuk berbagai kebutuhan</p>
+                    <div class="sub-collection">
+                        <h4>Jenis Profesi:</h4>
+                        <div class="sub-items">
+                            <span class="sub-item">👨‍⚕️ Dokter</span>
+                            <span class="sub-item">👩‍⚕️ Perawat</span>
+                            <span class="sub-item">👮 Polisi</span>
+                            <span class="sub-item">👷 TNI</span>
+                            <span class="sub-item">👨‍✈️ Pilot</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Jas -->
+            <div class="collection-card">
+                <div class="image-placeholder">🤵</div>
+                <div class="content">
+                    <h4>🤵 Koleksi Jas</h4>
+                    <p>Jas elegan untuk acara formal dan semi formal</p>
+                    <div class="sub-collection">
+                        <h4>Jenis Jas:</h4>
+                        <div class="sub-items">
+                            <span class="sub-item">🤵 Jas Formal</span>
+                            <span class="sub-item">🤵 Jas Pengantin</span>
+                            <span class="sub-item">🤵 Jas Modern</span>
+                            <span class="sub-item">👔 Jas Klasik</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cosplay -->
+            <div class="collection-card">
+                <div class="image-placeholder">🦸</div>
+                <div class="content">
+                    <h4>🦸 Kostum Cosplay</h4>
+                    <p>Koleksi kostum karakter populer untuk event dan pemotretan</p>
+                    <div class="sub-collection">
+                        <h4>Kategori Cosplay:</h4>
+                        <div class="sub-items">
+                            <span class="sub-item">🦄 Rubah</span>
+							<span class="sub-item">🦄 Singa</span>
+							<span class="sub-item">🦄 Prajurit</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kimono -->
+            <div class="collection-card">
+                <div class="image-placeholder">🎎</div>
+                <div class="content">
+                    <h4>🎎 Kimono Jepang</h4>
+                    <p>Koleksi kimono tradisional Jepang untuk berbagai kesempatan</p>
+                    <div class="sub-collection">
+                        <h4>Jenis Kimono:</h4>
+                        <div class="sub-items">
+                            <span class="sub-item">👘 Kimono Anak</span>
+                            <span class="sub-item">👘 Kimono Pria</span>
+							<span class="sub-item">👘 Kimono Wanita</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <!-- Bagian 3: Keunggulan -->
+        <section id="keunggulan">
+            <h2>Mengapa Memilih In Collection?</h2>
+            
+            <p>Kami berkomitmen untuk memberikan pelayanan terbaik dan pengalaman sewa yang memuaskan bagi setiap pelanggan. Berikut adalah alasan mengapa Anda harus memilih In Collection:</p>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="icon">✨</span>
+                    <h4>Kualitas Terjamin</h4>
+                    <p>Semua baju dalam kondisi bersih, terawat, dan berkualitas tinggi. Kami rutin melakukan perawatan dan pembersihan.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">💰</span>
+                    <h4>Harga Terjangkau</h4>
+                    <p>Harga kompetitif dengan kualitas terbaik. Banyak pilihan paket yang sesuai dengan budget Anda.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">👗</span>
+                    <h4>Koleksi Lengkap</h4>
+                    <p>Lebih dari 500+ koleksi baju dari berbagai kategori. Mulai dari baju adat, profesi, jas, cosplay, hingga kimono.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">🔄</span>
+                    <h4>Fleksibel</h4>
+                    <p>Sistem sewa yang fleksibel. Bisa harian, mingguan, atau sesuai kebutuhan acara Anda.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">👨‍🔧</span>
+                    <h4>Gratis Ukur Ulang</h4>
+                    <p>Layanan konsultasi ukuran gratis. Kami pastikan baju yang Anda sewa pas dan nyaman.</p>
+                </div>
+
+                <div class="feature-card">
+                    <span class="icon">🚚</span>
+                    <h4>Pengiriman Available</h4>
+                    <p>Layanan pengiriman ke lokasi Anda. Gratis ongkir untuk area tertentu.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bagian 4: Lokasi -->
+        <section id="lokasi" class="location-section">
+            <h2>📍 Kunjungi Toko Kami</h2>
+            
+            <p style="text-align: center; margin-top: 20px;">Kami berlokasi di jantung kota, mudah diakses dari berbagai arah. Datang langsung ke toko kami untuk melihat koleksi secara langsung!</p>
+
+            <div class="location-info">
+                <div class="location-item">
+                    <div class="icon">📍</div>
+                    <h4>Alamat</h4>
+                    <p>Jalan Anjasmoro IV Nomor 37<br>Kota Mojokerto</p>
+                </div>
+
+                <div class="location-item">
+                    <div class="icon">📞</div>
+                    <h4>Telepon</h4>
+                    <p>+62 813-3520-0069<br>WhatsApp Available</p>
+                </div>
+
+                <div class="location-item">
+                    <div class="icon">🕐</div>
+                    <h4>Jam Buka</h4>
+                    <p>Senin - Minggu: 08.00 - 20.00
+                </div>
+
+                </div>
+            </div>
+
+            <a href="https://wa.me/6281335200069" class="cta-button" style="background: #25D366;">Hubungi Kami via WhatsApp</a>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <h3>In Collection</h3>
+        <p>Persewaan Baju Terpercaya</p>
+        <p>📍 Jalan Anjasmoro IV Nomor 37</p>
+        <p>📞 +62 813-3520-0069</p>
+        
+        <div class="social-links">
+            <a href="#" title="Instagram">📷</a>
+            <a href="#" title="Facebook">📘</a>
+            <a href="#" title="WhatsApp">💬</a>
+            <a href="#" title="TikTok">🎵</a>
+        </div>
+        
+        <p style="margin-top: 30px; opacity: 0.6;">&copy; 2024 In Collection. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
