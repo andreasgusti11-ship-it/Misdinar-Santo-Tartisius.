@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelayan Altar - Serviam</title>
+    <style>
+        /* Reset dan Gaya Dasar */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            line-height: 1.8;
+            color: #333;
+            background-color: #fafafa;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #800000 0%, #a52a2a 50%, #800000 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: "✝";
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            position: relative;
+        }
+
+        header p {
+            font-size: 1.4em;
+            font-style: italic;
+            opacity: 0.95;
+        }
+
+        /* Navigasi */
+        nav {
+            background: linear-gradient(90deg, #1a1a1a, #333);
+            padding: 18px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        nav li {
+            margin: 0 5px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            font-family: 'Arial', sans-serif;
+        }
+
+        nav a:hover {
+            background: #800000;
+            transform: scale(1.05);
+        }
+
+        /* Kontainer Utama */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 25px;
+        }
+
+        /* Bagian */
+        section {
+            background: white;
+            margin-bottom: 45px;
+            padding: 45px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            border-top: 4px solid #800000;
+        }
+
+        section h2 {
+            color: #800000;
+            font-size: 2.3em;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e8e8e8;
+            text-align: center;
+        }
+
+        section h3 {
+            color: #a52a2a;
+            font-size: 1.5em;
+            margin: 30px 0 20px;
+            padding-left: 15px;
+            border-left: 3px solid #800000;
+        }
+
+        section p {
+            margin-bottom: 18px;
+            text-align: justify;
+            font-size: 1.05em;
+        }
+
+        /* Grid Peralatan */
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .equipment-card {
+            background: linear-gradient(180deg, #fff9f9, #fff);
+            border: 1px solid #e0d0d0;
+            border-radius: 12px;
+            padding: 28px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .equipment-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(128,0,0,0.2);
+            border-color: #800000;
+        }
+
+        .equipment-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .equipment-card h4 {
+            color: #800000;
+            font-size: 1.25em;
+            margin-bottom: 12px;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Langkah-Langkah */
+        .steps {
+            counter-reset: step;
+            list-style: none;
+            margin: 25px 0;
+        }
+
+        .steps li {
+            position: relative;
+            padding: 20px 20px 20px 75px;
+            margin-bottom: 20px;
+            background: #fafafa;
+            border-radius: 8px;
+            border-left: 4px solid #800000;
+        }
+
+        .steps li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 42px;
+            height: 42px;
+            background: #800000;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            font-family: 'Arial', sans-serif;
+        }
+
+        /* Kotak Kutipan */
+        .quote-box {
+            background: linear-gradient(135deg, #fdf8f8, #fff);
+            border-left: 5px solid #d4af37;
+            padding: 30px;
+            margin: 30px 0;
+            font-style: italic;
+            text-align: center;
+            border-radius: 0 8px 8px 0;
+            font-size: 1.15em;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 35px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            opacity: 0.85;
+            font-size: 0.95em;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.2em; }
+            header p { font-size: 1.1em; }
+            section { padding: 25px; }
+            section h2 { font-size: 1.8em; }
+            nav ul { flex-direction: column; align-items: center; }
+            .steps li { padding-left: 60px; }
+            .steps li::before { width: 35px; height: 35px; font-size: 1em; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Pelayan Altar</h1>
+        <p>"Serviam"  Aku akan melayani</p>
+    </header>
+
+    <!-- Navigasi -->
+    <nav>
+        <ul>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#perlengkapan">Perlengkapan</a></li>
+            <li><a href="#tatacara">Tata Cara</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+
+        <!-- Bagian 1: Tentang Pelayan Altar -->
+        <section id="tentang">
+            <h2>Apa Itu Pelayan Altar?</h2>
+            
+            <p>Pelayan altar (dalam bahasa Latin disebut <em>ministrantes</em> atau <em>acolythi</em>) adalah orang-orang yang dipilih dan dibentuk untuk membantu imam dalam perayaan liturgi ekaristi. Mereka memiliki peran penting dalam memastikan kelancaran dan kekhidmatan penyelengaraan ibadat gerejawi.</p>
+            
+            <p>Dalam tradisi Katolik, pelayanan altar telah ada sejak zaman Gereja mula-mula. Pada awalnya, tugas ini dilakukan oleh para diakon dan subdiakon, namun seiring waktu berkembang menjadi pelayanan khusus yang dapat dijalankan oleh umat awam yang sudah menerima pembaptisan.</p>
+
+            <h3>Tugas Utama Pelayan Altar</h3>
+            <ul>
+                <li><strong>Membawa lilin</strong> - Mengiringi prosesi masuk dan keluar gereja dengan membawa lilin liturgical</li>
+                <li><strong>Membawa Wirug(Misa tertentu.)</strong> - Membantu dalam upacara pembakaran kemenyan</li>
+                <li><strong>Menjaga altar</strong> - Memastikan semua keperluan altar tersedia dan tersusun dengan rapi</li>
+                <li><strong>Membantu imam</strong> - Memberikan Persembahan yang diperlukan selama Misa</li>
+            </ul>
+
+            <h3>Syarat Menjadi Pelayan Altar</h3>
+            <ol>
+                <li>Sudah menerima Sakramen Pembaptisan dan Komuni Pertama</li>
+                <li>Memiliki umur yang cukup (biasanya minimal 10 tahun)</li>
+                <li>Mengikuti pendidikan dan pembentukan tentang liturgi</li>
+                <li>Memiliki kehendak yang tulus untuk melayani</li>
+                <li>Berkelakuan baik dan dapat menjadi teladan bagi sesama</li>
+            </ol>
+
+            <div class="quote-box">
+                "Sesungguhnya, Aku menyuruh kamu pergi seperti domba di antara serigala." — Lukas 10:3
+            </div>
+        </section>
+
+        <!-- Bagian 2: Perlengkapan Liturgi -->
+        <section id="perlengkapan">
+            <h2>Perlengkapan Liturgi</h2>
+            
+            <p>Perlengkapan liturgi adalah berbagai benda yang digunakan dalam perayaan ekaristi dan ibadat gerejawi lainnya. Setiap benda memiliki makna simbolis yang mendalam dan harus diperlakukan dengan penuh hormat.</p>
+
+            <div class="equipment-grid">
+                <div class="equipment-card">
+                    <span class="icon">🕯️</span>
+                    <h4>Lilin Altar</h4>
+                    <p>Melambangkan Kristus sebagai Cahaya Dunia. Minimal dua lilin menyala di atas altar saat Misa dirayakan.</p>
+                </div>
+
+                <div class="equipment-card">
+                    <span class="icon">🏺</span>
+                    <h4>Kaliks (Piala)</h4>
+                    <p>Wadah untuk anggur yang akan menjadi Darah Kristus dalam komuni. Terbuat dari emas atau perak.</p>
+                </div>
+
+                <div class="equipment-card">
+                    <span class="icon">🍞</span>
+                    <h4>Patena</h4>
+                    <p>piring kecil untuk Hosti (Tubuh Kristus) yang akan dibagikan kepada umat.</p>
+                </div>
+
+                <div class="equipment-card">
+                    <span class="icon">💧</span>
+                    <h4>Ampul</h4>
+                    <p>Wadah untuk air yang dan anggur dalam ritual pengudusan.</p>
+                </div>
+
+                <div class="equipment-card">
+                    <span class="icon">🪔</span>
+                    <h4>Wirug</h4>
+                    <p>Alat untuk membakar kemenyan, melambangkan doa yang naik kepada Tuhan.</p>
+                </div>
+
+                <div class="equipment-card">
+                    <span class="icon">📖</span>
+                    <h4>Lectionary</h4>
+                    <p>Buku bacaan alkitabiah yang berisi bacaan-bacaan untuk setiap hari Minggu dan hari raya.</p>
+                </div>
+				
+                <div class="equipment-card">
+                    <span class="icon">🧵</span>
+                    <h4>Corporal</h4>
+                    <p>Kain linen putih yang diletakkan di atas altar untuk menempatkan kaliks dan patena.</p>
+                </div>
+            </div>
+
+            <h3>Pakaian Pelayan Altar</h3>
+            <p>Pelayan altar mengenakan pakaian khusus yang disebut <strong>rook</strong> atau <strong>simile</strong>. Rook adalah jubah pendek berwarna putih yang melambangkan kemurnian dan kesucian tugas mereka. Beberapa gereja juga menggunakan warna lain sesuai dengan warna liturgical hari tersebut.</p>
+        </section>
+
+        <!-- Bagian 3: Tata Cara Liturgi -->
+        <section id="tatacara">
+            <h2>Tata Cara Liturgi Misa</h2>
+            
+            <p>Perayaan Misa terdiri dari beberapa bagian utama yang masing-masing memiliki makna dan ritus tersendiri. Pelayan altar harus memahami dan menguasai setiap bagian ini untuk dapat menjalankan tugasnya dengan baik.</p>
+
+            <h3>1. Persiapan Sebelum Misa</h3>
+            <ul class="steps">
+                <li><strong>Datang awal</strong> - Datang minimal 30 menit sebelum Misa dimulai</li>
+                <li><strong>Berdoa</strong> - Melakukan doa persiapan di kapel atau di tempat khusus</li>
+                <li><strong>Memeriksa peralatan</strong> - Memastikan semua perlengkapan altar sudah lengkap dan bersih</li>
+			    <li><strong>Memasang lilin</strong> - Menyalakan lilin altar sebelum Misa dimulai</li>
+                <li><strong>Membagi Tugas</strong> - Menyalakan lilin altar sebelum Misa dimulai</li>
+				<li><strong>Memakai Jubah</strong> - Memakai pakaian pelayan dengan rapi dan sopan</li>
+            </ul>
+
+            <h3>2. Bagian-Bagian Misa</h3>
+            <ol>
+                <li>
+                    <strong>Liturgi Pembuka</strong>
+                    <p>Meliputi nyanyian masuk, salam, Berkat, Tuhan Kasihanilah Kami dan Kemuliaan atau Kyrie dan Gloria, dan doa pembuka.</p>
+                </li>
+                <li>
+                    <strong>Liturgi Sabda</strong>
+                    <p>Meliputi bacaan pertama, mazmur, bacaan kedua, aleluya, injil, dan homili.</p>
+                </li>
+                <li>
+                    <strong>Liturgi Ekaristi</strong>
+                    <p>Puncak Misa meliputi doa syukur, konsekrasi, komuni, dan doa setelah komuni.</p>
+                </li>
+                <li>
+                    <strong>Liturgi Penutup</strong>
+                    <p>Meliputi pengumuman, berkat, dan pengutusan.</p>
+                </li>
+            </ol>
+
+            <h3>3. Peran Pelayan Altar Dalam Misa</h3>
+            <ul>
+                <li><strong>Prosesi masuk</strong> - Berjalan di depan imam membawa salib dan lilin</li>
+                <li><strong>Membuka buku</strong> - Membuka buku bacaan di tempat yang benar saat pembacaan</li>
+                <li><strong>Membawa kemenyan</strong> - Menghormati altar dan imam dengan pembakaran kemenyan</li>
+                <li><strong> Membawa air</strong> - Menyediakan air untuk mencuci tangan imam</li>
+                <li><strong>Prosesi keluar</strong> - Mengakhiri Misa dengan iringan yang sama seperti saat masuk</li>
+            </ul>
+
+            <div class="quote-box">
+                "Ambillah dan makanlah, ini adalah Tubuh-Ku." — Markus 14:22
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Situs Web Pelayan Altar</strong></p>
+        <p>Dibuat untuk generasi pelayan altar yang semakin berkembang</p>
+        <p>"Serving with Love and Faith" ✝</p>
+    </footer>
+
+</body>
+</html>
